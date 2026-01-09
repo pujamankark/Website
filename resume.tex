@@ -1,0 +1,196 @@
+\documentclass[]{resume-openfont}
+
+\usepackage{times}  % Uses Times New Roman font
+
+\pagestyle{fancy}
+\resetHeaderAndFooter
+
+%--------------------------------------------------------------
+% Convenience command - make it easy to fill template
+
+% Create job position command. Parameters: company, position, location, when
+\newcommand{\resumeHeading}[4]{\runsubsection{\uppercase{#1}}\descript{ | #2}\hfill\location{#3 | #4}\fakeNewLine}
+
+% Create education heading. Parameters: Name, degree, location, when
+\newcommand{\educationHeading}[4]{\runsubsection{#1}\hspace*{\fill}  \location{#3 | #4}\\
+\descript{#2}\fakeNewLine}
+
+% Create project heading. Parameters: Name, link, Tech stack
+\newcommand{\projectHeading}[3]{\Project{#1}{#2}
+\descript{#3}\\}
+
+\newcommand{\projectHeadingWithDate}[4]{\Project{#1}{#2}
+\descript{#3 | #4}\\}
+
+% Parameters: courses
+\newcommand{\courseWork}[1]{\textbf{Coursework:} #1}
+
+% Parameters: courses
+\newcommand{\teacherAssistant}[1]{\textbf{Teacher Assistant (TA):} #1}
+
+
+
+%--------------------------------------------------------------
+\begin{document}
+
+%--------------------------------------------------------------
+%     Profile
+%--------------------------------------------------------------
+\newcommand{\yourName}{PUJA MANKAR}
+% How you want it to show up on the resume
+\newcommand{\yourWebsite}{website.com}
+% vs how you want it to show up. If it's you can just replace "\yourWebsiteLink" with "yourWebsite"
+\newcommand{\yourWebsiteLink}{https://website.com}
+\newcommand{\yourEmail}{puja.mankar.k@gmail.com}
+\newcommand{\yourPhone}{(+91)8208731193}
+%\newcommand{\githubUserName}{g-s-k-zoro}
+\newcommand{\linkedInUserName}{puja-mankar-819b1b17b/}
+
+% An alternate profile section 
+% \alignProfileTable
+% \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+%     \ralewayBold{\href{\yourWebsiteLink}{\Large \yourName}} & 
+%     Email : \href{mailto:\yourEmail}{\yourEmail}
+%     \\
+%     \href{https://github.com/\githubUserName}{GitHub://\githubUserName} & 
+%     Mobile : \yourPhone
+%     \\
+%     \href{https://www.linkedin.com/in/\linkedInUserName}{LinkedIn://\linkedInUserName} & Website : \href{\yourWebsiteLink}{\yourWebsite}
+%     \\
+% \end{tabular*}
+
+\begin{center}
+    \Huge \scshape \latoRegular{\yourName} \\ \vspace{2pt}
+    \small \href{mailto:\yourEmail}{\underline{\yourEmail}}  $|$  \yourPhone $|$ 
+    \href{https://www.linkedin.com/in/\linkedInUserName}{\underline{linkedIn/\linkedInUserName}} 
+   % \href{https://github.com/\githubUserName}{\underline{github/\githubUserName}} 
+    % $|$ \href{\yourWebsiteLink}{\underline{\yourWebsite}}
+\end{center}
+
+%--------------------------------------------------------------
+\section {Profile Summary}
+
+Microbiologist with R\&D and regulatory experience in food formulation, scale up. analytical testing, and compliance. Skilled in assay validation, process optimization, and ensuring nutritional labeling accuracy aligned with FSSAI and global standards.
+
+\sectionsep
+
+%--------------------------------------------------------------
+\section{Work Experience}
+\sectionsep
+
+\resumeHeading{Valcore Foods Pvt Ltd}{Research and Development Manager}{}{July 2025 – Oct 2025}
+\begin{bullets}
+    \item Led fermentation studies on chilli mash, optimizing LAB dominance under varying methodolgies, salt concentrations, particle sizes, and anaerobic conditions.
+    \item Designed preservative efficacy trials (benzoate, sorbate, metabisulphite, ascorbic acid, tocopherols, EDTA, blanching) to evaluate microbial stability, color retention, and shelf life.
+    \item Conducted and Standardized analytical assays 
+    \item Developed troubleshooting protocols for fermentation failures (kahm yeast, texture loss, off-flavors) and generated reproducible datasets for process refinement.
+    \item Working on developing a fermented hot sauce with focus on stability, sensory profile, texture, packaging, and physicochemical characteristics in alignment with FSSAI guidelines.
+    \item Investigated pigment degradation in green and red peppers linked to processing parameters and metal ion content.
+   
+\end{bullets}
+\sectionsep 
+
+
+\resumeHeading{Anuvi Food Sciences Pvt Ltd}{Business Operations Executive}{}{Feb 2024 – June 2025}
+\begin{bullets}
+    \item Scaled in-house production of fermentation-based food additives (6x and 10x) by optimizing experimental design. 
+    \item Reviewed and updated patents to protect product design and intellectual property (IP).
+    %  \item Here is another bullet that I might choose to uncomment for some jobs
+    \item Served as the primary contact for regulatory compliance and license acquisition, including FSSAI and HALAL certifications.
+    \item Designed POC to evaluate the efficacy of bitter blocker(a taste modulator) in enhancing the palatability of stevia. Following validation, expanded the design to accommodate use cases like chocolate coffee and tea.
+    \item Developed and managed a commercially scalable production methodology ensuring viability and large-scale implementation, for the same.
+    \item Designed and analyzed sensory evaluation experiments for cell-derived additives.
+   
+\end{bullets}
+\sectionsep
+
+
+
+\resumeHeading{Mylab Discovery Solutions}{Intern}{}{Feb 2023 - Aug 2023}
+\begin{bullets}
+    \item Collaborated with BD Max to optimize in-house RT-PCR kits for end-to-end automation.
+    \item Automated RT-PCR kits on in-house machines, including Compact XL, Compact Dx, and Compact Q.
+    \item Worked on the development and optimization of an in-house RT-PCR kit for HHH detection.
+
+    \item Part of the validation team for RT-PCR kits, ensuring accuracy and regulatory compliance.
+   
+\end{bullets}
+\sectionsep
+
+\section{Technical skills}
+\sectionsep
+\begin{bullets}
+ 
+ 
+
+ \item Microbial culture isolation, maintenance, and sampling
+
+ \item Experiment design and protocol development (SOPs, safety standards)
+
+ \item Analytical assays: titration, spectrophotometry, RT-PCR, microbial profiling
+
+ \item Quality control, documentation, and regulatory compliance (GLP, FSSAI, ISO)
+
+ \item Team training, equipment maintenance, and lab workflow management
+  
+\end{bullets}
+
+
+%--------------------------------------------------------------
+%     Projects
+%--------------------------------------------------------------
+\newpage
+\section{Projects}
+\sectionsep
+\resumeHeading{NGS-SOIL METAGENOMICS}{Research Assitant}{}{Oct 2021- Sept 2022} 
+
+Anazlyzed NGS data to characterize and identify soil metagenomes across different cropping systems and fertilizers.
+
+
+\sectionsep
+
+\resumeHeading{College vicinity food safety assessment}{Student}{}{Aug 2017- Dec 2017} 
+
+Isolated, identified, and characterized bacteria responsible for food poisoning at outlets frequented by college(Fergusson College, Pune) students. Successfully detected \textit{Staphylococcus aureus}, \textit{Salmonella}, and \textit{Campylobacter}.
+\sectionsep
+% Example using bullets and dates 
+% \projectHeadingWithDate{Hogwart\textquotesingle{}s Library Management System}{https://github.com/Aarif123456/hogwartslibrary}{PHP, JavaScript, HTML, CSS, MySQL}{Aug 2019}
+% \begin{bullets}
+    % \item A full-stack library management system, where users can manage books and holds on their accounts. Users can search the library\textquotesingle{}s catalogue, which has every book mentioned in the Harry Potter series. The system distinguishes between 4 users. For examples, librarians who can also check or return books on behalf of users.\\
+% \end{bullets}
+% \sectionsep
+  
+%--------------------------------------------------------------
+%     Education
+%--------------------------------------------------------------
+\section{Education}
+\sectionsep
+% Put school first and degree second if your school is reputable
+\educationHeading{MASTERS IN MICROBIOLOGY}{Modern College of Arts, Science and Commerce, Pune}{CGPA 9.31}{July 2021}\\
+\sectionsep
+\educationHeading{BACHELORS IN MICROBIOLOGY}{Fergusson College, Pune}{CGPA 7.35}{July 2019}
+% \courseWork{Data Structures and Algorithms; Operating Systems;  Computer Security; Software Testing; Advanced Networking; Big Data Analytics}
+\sectionsep
+%--------------------------------------------------------------
+%     Skills
+%--------------------------------------------------------------
+\section{Achievements \& Extra-curriculars}
+\sectionsep
+\begin{bullets}
+\item Certification on Food Safety Training (FoSTaC)
+\item Certification on ISO 22000:2018 FSMS Lead Auditor
+\item GLP/EHS Laboratory Practices (Training, 2023)
+\item Certification course on techniques in Pharmaceutical Microbiology.
+\item Certification course on working of Pharmaceutical industry, Quality assurance and Quality control.
+\item Volunteering for Covid Test initiative at Molecular Diagnostic Research Centre of Savitribai Phule University.
+\end{bullets}
+
+% A more concise alternate 
+% \begin{skillList}
+%     \doubleItem{Languages:}{Java, C++, Python, C\#, PHP, Prolog, Bash, C, Racket}%
+%     {Databases:}{SQL, MongoDB, Neo4j, DynamoDB}
+%     \\
+%     \doubleItem{Web Development:}{JavaScript, TypeScript, React, HTML/CSS}
+%     {Technology:}{Git, AWS, GCP, Azure, Docker, \LaTeX}%
+% \end{skillList}
+\end{document}
