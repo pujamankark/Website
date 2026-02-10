@@ -1,0 +1,19 @@
+{
+  "name": "puja-portfolio-3d",
+  "version": "1.0.0",
+  "description": "3D Interactive Portfolio featuring Quinine Molecule",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx http-server -p 3000 -o",
+    "start": "npx http-server -p 3000"
+  },
+  "keywords": ["portfolio", "three.js", "3d", "interactive"],
+  "author": "Puja Mankar",
+  "license": "MIT",
+  "dependencies": {
+    "three": "^0.170.0"
+  },
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  }
+}

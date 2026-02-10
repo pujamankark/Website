@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Puja Mankar - Microbiologist, Builder, Learner</title>
+
+    <meta name="description"
+        content="Puja Mankar - Microbiologist with range. Science, industry, and ideas that don't fit neat categories.">
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="css/overlay-panels.css">
+    <link rel="stylesheet" href="css/molecule-3d.css">
+    <link rel="stylesheet" href="css/hero-overlay.css">
+    <link rel="stylesheet" href="css/form-success.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- Import Map for Three.js ES Modules -->
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
+        }
+    }
+    </script>
+</head>
+
+<body>
+
+    <!-- LOADING SCREEN -->
+    <div id="loading-screen">
+        <div class="loading-content">
+            <div class="molecule-icon">
+                <div class="atom"></div>
+                <div class="atom"></div>
+                <div class="atom"></div>
+                <div class="atom"></div>
+                <div class="atom"></div>
+            </div>
+            <h1 class="loading-title">Puja Mankar</h1>
+            <p class="loading-subtitle">Assembling molecular portfolio...</p>
+            <div class="progress-bar">
+                <div class="progress-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 3D MOLECULE CONTAINER -->
+    <div id="molecule-container">
+        <canvas id="molecule-canvas"></canvas>
+    </div>
+
+    <!-- HERO OVERLAY - Name and Introduction -->
+    <div class="hero-overlay">
+        <div class="hero-content">
+            <h1 class="hero-name">Puja Mankar</h1>
+            <p class="hero-tagline">Microbiologist. Builder. Perpetual learner.</p>
+            <p class="hero-description">
+                I move between labs and spreadsheets, science and strategy, questions and execution.
+                I don't fit neatly into a single category—and I've stopped trying to.
+            </p>
+            <div class="hero-cta">
+                <a href="#" class="explore-btn"
+                    onclick="document.querySelector('.persistent-label').click(); return false;">
+                    Explore My Work →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- CONTACT FORM OVERLAY -->
+    <div class="contact-overlay">
+        <div class="contact-form-container">
+            <h3 class="contact-form-title">Reach Out</h3>
+            <p class="contact-form-subtitle">Send me a message directly</p>
+            <form class="contact-form">
+                <div class="form-group">
+                    <label class="form-label" for="contact-name">Name</label>
+                    <input type="text" id="contact-name" name="name" class="form-input" placeholder="Your name"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="contact-email">Email</label>
+                    <input type="email" id="contact-email" name="email" class="form-input" placeholder="your@email.com"
+                        required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label" for="contact-message">Message</label>
+                    <textarea id="contact-message" name="message" class="form-textarea"
+                        placeholder="What's on your mind?" required></textarea>
+                </div>
+                <button type="submit" class="form-submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- CONTENT OVERLAY -->
+    <div id="content-overlay">
+        <div class="overlay-background"></div>
+        <div class="overlay-panel">
+            <button id="close-overlay">×</button>
+            <div id="overlay-content">
+                <!-- Content will be dynamically loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- HIDDEN CONTENT SECTIONS (Source for overlays) -->
+    <div style="display: none;">
+
+        <!-- ABOUT SECTION -->
+        <div id="about">
+            <h2>Not a One-Trick Pony</h2>
+            <p>
+                I've isolated bacteria, scaled fermentation processes, navigated regulatory compliance,
+                designed experiments, reviewed patents, and built this website.
+            </p>
+            <p>
+                My background is microbiology. My work spans R&D, business operations, and techno-commercial
+                roles. My mindset is: learn what's needed, execute, adapt.
+            </p>
+            <p>
+                I'm comfortable being a beginner in unfamiliar territory. That's how I've moved from
+                molecular biology to manufacturing coordination to building digital things.
+            </p>
+            <p>
+                <strong>Master's in Microbiology</strong> (CGPA 9.31) from Modern College, Pune.
+                Work experience in food science, fermentation, regulatory compliance, and product development.
+                Currently figuring out what's next.
+            </p>
+        </div>
+
+        <!-- WORK SECTION -->
+        <div id="work">
+            <h2>Where I've Worked</h2>
+
+            <h3>Research and Development Manager</h3>
+            <p><strong>Valcore Foods Pvt Ltd</strong> | July 2025 - Oct 2025</p>
+            <ul>
+                <li>Led fermentation studies on chilli mash, optimizing LAB dominance under varying methodologies, salt
+                    concentrations, particle sizes, and anaerobic conditions</li>
+                <li>Designed preservative efficacy trials (benzoate, sorbate, metabisulphite, ascorbic acid,
+                    tocopherols, EDTA, blanching) to evaluate microbial stability, color retention, and shelf life</li>
+                <li>Standardized analytical assays and developed troubleshooting protocols for fermentation failures
+                    (kahm yeast, texture loss, off-flavors)</li>
+                <li>Developed fermented hot sauce with focus on stability, sensory profile, texture, packaging, and
+                    physicochemical characteristics aligned with FSSAI guidelines</li>
+                <li>Investigated pigment degradation in green and red peppers linked to processing parameters and metal
+                    ion content</li>
+            </ul>
+
+            <h3>Business Operations Executive</h3>
+            <p><strong>Anuvi Food Sciences Pvt Ltd</strong> | Feb 2024 - June 2025</p>
+            <ul>
+                <li>Scaled in-house production of fermentation-based food additives (6x and 10x) by optimizing
+                    experimental design</li>
+                <li>Reviewed and updated patents to protect product design and intellectual property (IP)</li>
+                <li>Served as primary contact for regulatory compliance and license acquisition, including FSSAI and
+                    HALAL certifications</li>
+                <li>Designed POC to evaluate efficacy of bitter blocker (taste modulator) in enhancing palatability of
+                    stevia; expanded design for chocolate, coffee, and tea applications</li>
+                <li>Developed commercially scalable production methodology ensuring viability and large-scale
+                    implementation</li>
+                <li>Designed and analyzed sensory evaluation experiments for cell-derived additives</li>
+            </ul>
+
+            <h3>Intern</h3>
+            <p><strong>Mylab Discovery Solutions</strong> | Feb 2023 - Aug 2023 (6 months)</p>
+            <ul>
+                <li>Ran hundreds of RT-PCR tests daily during COVID-19 pandemic, contributing to critical diagnostic
+                    efforts</li>
+                <li>Collaborated with BD Max to optimize in-house RT-PCR kits for end-to-end automation</li>
+                <li>Automated RT-PCR kits on in-house machines, including Compact XL, Compact Dx, and Compact Q</li>
+                <li>Worked on development and optimization of in-house RT-PCR kit for HHH detection</li>
+                <li>Part of validation team for RT-PCR kits, ensuring accuracy and regulatory compliance</li>
+            </ul>
+        </div>
+
+        <!-- SKILLS SECTION -->
+        <div id="skills">
+            <h2>What I Bring to the Table</h2>
+
+            <h3>Technical</h3>
+            <ul>
+                <li>Microbial culture isolation, maintenance, and sampling</li>
+                <li>Experiment design and protocol development (SOPs, safety standards)</li>
+                <li>Analytical assays: titration, spectrophotometry, RT-PCR, microbial profiling</li>
+                <li>Fermentation technology and process optimization</li>
+                <li>Food additives, preservatives, and formulation</li>
+                <li>Quality control and documentation</li>
+            </ul>
+
+            <h3>Regulatory & Compliance</h3>
+            <ul>
+                <li>FSSAI compliance and licensing</li>
+                <li>ISO 22000:2018 FSMS Lead Auditor certified</li>
+                <li>GLP/EHS laboratory practices</li>
+                <li>Regulatory testing and documentation</li>
+                <li>Patent review and IP protection</li>
+                <li>Food safety standards (FoSTaC certified)</li>
+            </ul>
+
+            <h3>Commercial & Strategic</h3>
+            <ul>
+                <li>Scale-up and production optimization</li>
+                <li>Product commercialization and POC design</li>
+                <li>Sensory evaluation and consumer testing</li>
+                <li>Manufacturing coordination</li>
+                <li>Team training and workflow management</li>
+                <li>Cross-functional communication</li>
+            </ul>
+        </div>
+
+        <!-- PROJECTS SECTION -->
+        <div id="projects">
+            <h2>Projects & Research</h2>
+
+            <h3>NGS Soil Metagenomics</h3>
+            <p><strong>Research Assistant</strong> | Oct 2021 - Sept 2022</p>
+            <p>
+                Analyzed NGS data to characterize and identify soil metagenomes across different
+                cropping systems and fertilizers. Worked with bioinformatics tools to understand
+                microbial diversity in agricultural contexts.
+            </p>
+
+            <h3>College Vicinity Food Safety Assessment</h3>
+            <p><strong>Student Project</strong> | Aug 2017 - Dec 2017</p>
+            <p>
+                Isolated, identified, and characterized bacteria responsible for food poisoning
+                at outlets frequented by Fergusson College students. Successfully detected
+                <em>Staphylococcus aureus</em>, <em>Salmonella</em>, and <em>Campylobacter</em>.
+            </p>
+
+            <h3>Certifications & Extras</h3>
+            <ul>
+                <li>Food Safety Training (FoSTaC) Certification</li>
+                <li>ISO 22000:2018 FSMS Lead Auditor Certification</li>
+                <li>GLP/EHS Laboratory Practices Training (2023)</li>
+                <li>Pharmaceutical Microbiology Techniques Certification</li>
+                <li>Pharmaceutical QA/QC Certification Course</li>
+                <li>Volunteered during COVID-19 pandemic for testing initiative at Molecular Diagnostic Research Centre,
+                    Savitribai Phule University</li>
+            </ul>
+        </div>
+
+        <!-- CURIOSITY SECTION -->
+        <div id="curious">
+            <h2>What I'm Curious About</h2>
+            <p>Beyond the job title, here's what keeps me engaged:</p>
+
+            <h3>Reading & Ideas</h3>
+            <p>
+                Gothic fiction, feminist literature, and literary journals.
+                Currently reading feminist literature and literary journals.
+            </p>
+
+            <h3>Artistic Expression</h3>
+            <p>
+                Painting, Bharatnatyam, writing, journaling, and scrapbooking.
+                Everything that gives me a sense of calmness and control.
+                Helps me think better when I can see the words of a problem on paper.
+            </p>
+
+            <h3>Learning Outside My Lane</h3>
+            <p>
+                Comfortable diving into unfamiliar domains. Recent explorations:
+                solo venture, web development, vibe coding, and developing teaching aids.
+            </p>
+            <p><strong>Tools I've explored:</strong> NotebookLM, Perplexity, Antigravity, Cursor, GitHub, HackerRank,
+                FastQC, fastp, Trimmomatic, Cutadapt, MEGAHIT, metaSPAdes, Kraken 2, GTDB-Tk, MetaWRAP, ChemDraw, Canva
+            </p>
+        </div>
+
+        <!-- BLOGS SECTION -->
+        <div id="blogs">
+            <h2>Writings & Reflections</h2>
+            <p>Thoughts on science, creativity, and everything in between</p>
+
+            <h3>Your Blog Post Title</h3>
+            <p><em>Date | Category</em></p>
+            <p>
+                A short excerpt or introduction to your blog post.
+                Keep it engaging and give readers a reason to click "Read More"...
+            </p>
+
+            <h3>Another Blog Post Title</h3>
+            <p><em>Date | Category</em></p>
+            <p>
+                Another engaging excerpt that makes people want to read more
+                about your thoughts and experiences...
+            </p>
+
+            <p>
+                Want to read more? Visit my <a href="#" target="_blank">blog</a> or
+                <a href="#" target="_blank">Medium profile</a>.
+            </p>
+        </div>
+
+        <!-- CONTACT SECTION -->
+        <div id="contact">
+            <h2>Let's Connect</h2>
+            <p>
+                If something here made you think, question, or disagree, that's a good place to start.
+            </p>
+
+            <p><strong>Email:</strong> <a href="mailto:puja.mankar.k@gmail.com">puja.mankar.k@gmail.com</a></p>
+            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/puja-mankar-819b1b17b/"
+                    target="_blank">puja-mankar</a></p>
+            <p><strong>Phone:</strong> <a href="tel:+918208731193">(+91) 8208731193</a></p>
+        </div>
+
+    </div>
+
+    <!-- 2D FALLBACK FOR MOBILE (Original Portfolio) -->
+    <div id="fallback-2d" style="display: none;">
+        <!-- Original portfolio content will be shown here for mobile devices -->
+        <p style="text-align: center; padding: 2rem; color: #666;">
+            <strong>Mobile version:</strong> The 3D experience is optimized for desktop.
+            <br><br>
+            Please visit on a desktop browser for the full interactive experience.
+            <br><br>
+            <a href="https://pujamankark.github.io/Website/" style="color: #00d9ff;">View traditional portfolio →</a>
+        </p>
+    </div>
+
+    <!-- Three.js and Application Scripts -->
+    <script src="js/form-handler.js"></script>
+    <script type="module" src="js/main.js"></script>
+
+</body>
+
+</html>
