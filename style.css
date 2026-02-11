@@ -577,6 +577,49 @@ section:nth-child(odd) {
     transform: translateY(-2px);
 }
 
+/* Hidden Artwork Items */
+.hidden-artwork {
+    display: none;
+}
+
+/* Show More Button */
+.show-more-btn {
+    margin: 2rem auto 0;
+    padding: 0.75rem 2rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: block;
+    font-family: var(--font-body);
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.show-more-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Gallery Fade-in Animation */
+.gallery-item.fade-in {
+    animation: fadeInGallery 0.5s ease-in;
+}
+
+@keyframes fadeInGallery {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
 
 /* ============================================
    BLOGS SECTION

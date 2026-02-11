@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -10,12 +10,56 @@
     <meta name="description"
         content="Puja Mankar - Microbiologist with range. Science, industry, and ideas that don't fit neat categories.">
 
-    <!-- Stylesheets -->
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="css/overlay-panels.css">
-    <link rel="stylesheet" href="css/molecule-3d.css">
-    <link rel="stylesheet" href="css/hero-overlay.css">
-    <link rel="stylesheet" href="css/form-success.css">
+    <link rel="stylesheet" href="style.css?v=2">
+
+    <!-- Critical Gallery Styles (inline to prevent caching issues) -->
+    <style>
+        .hidden-artwork {
+            display: none;
+        }
+
+        .hidden-reading {
+            display: none;
+        }
+
+        .show-more-btn {
+            margin: 2rem auto 0;
+            padding: 0.75rem 2rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: block;
+            font-family: 'Inter', sans-serif;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .show-more-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+        }
+
+        .gallery-item.fade-in {
+            animation: fadeInGallery 0.5s ease-in;
+        }
+
+        @keyframes fadeInGallery {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,318 +68,656 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- Import Map for Three.js ES Modules -->
-    <script type="importmap">
-    {
-        "imports": {
-            "three": "https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js",
-            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"
-        }
-    }
-    </script>
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- LOADING SCREEN -->
-    <div id="loading-screen">
-        <div class="loading-content">
-            <div class="molecule-icon">
-                <div class="atom"></div>
-                <div class="atom"></div>
-                <div class="atom"></div>
-                <div class="atom"></div>
-                <div class="atom"></div>
-            </div>
-            <h1 class="loading-title">Puja Mankar</h1>
-            <p class="loading-subtitle">Assembling molecular portfolio...</p>
-            <div class="progress-bar">
-                <div class="progress-fill"></div>
-            </div>
+    <!-- NAVIGATION BAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">PM</div>
+
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#work">Work</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#curious">Curiosity</a></li>
+                <li><a href="#blogs">Blogs</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-    </div>
+    </nav>
 
-    <!-- 3D MOLECULE CONTAINER -->
-    <div id="molecule-container">
-        <canvas id="molecule-canvas"></canvas>
-    </div>
-
-    <!-- HERO OVERLAY - Name and Introduction -->
-    <div class="hero-overlay">
-        <div class="hero-content">
+    <!-- ═══════════════════════════════════════════════════════════
+         HERO SECTION
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="home" class="hero">
+        <div class="container">
             <h1 class="hero-name">Puja Mankar</h1>
-            <p class="hero-tagline">Microbiologist. Builder. Perpetual learner.</p>
+
+            <!-- ═══════════════════════════════════════════════════════════
+                  EDITABLE: INTRO TAGLINE
+                 ═══════════════════════════════════════════════════════════
+                 Change this to adjust your positioning.
+                 Examples:
+                 - "Scientist. Builder. Learner."
+                 - "Microbiologist with range."
+                 - "Science + Industry + Curiosity"
+                 ═══════════════════════════════════════════════════════════ -->
+            <h2 class="hero-tagline">Microbiologist. Builder. Perpetual learner.</h2>
+
+            <!-- ═══════════════════════════════════════════════════════════
+            <!-- —————————————————————————————————————————————————————————————————————————
+                 ✍️ EDITABLE: HERO DESCRIPTION
+                 —————————————————————————————————————————————————————————————————————————
+                 Your positioning statement. Keep it conversational.
+                 ————————————————————————————————————————————————————————————————————————— -->
             <p class="hero-description">
                 I move between labs and spreadsheets, science and strategy, questions and execution.
                 I don't fit neatly into a single category—and I've stopped trying to.
             </p>
-            <div class="hero-cta">
-                <a href="#" class="explore-btn"
-                    onclick="document.querySelector('.persistent-label').click(); return false;">
-                    Explore My Work →
-                </a>
+
+            <a href="#contact" class="cta-button">Let's Connect</a>
+        </div>
+    </section>
+
+    <!-- ═══════════════════════════════════════════════════════════
+         ABOUT / "MORE THAN A RESUME" SECTION
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">Not a One-Trick Pony</h2>
+
+            <!-- ═══════════════════════════════════════════════════════════
+                  EDITABLE: ABOUT CONTENT
+                 ═══════════════════════════════════════════════════════════
+                 Tell your story. Be honest about your range.
+                 Tone: Grounded, not defensive.
+                 ═══════════════════════════════════════════════════════════ -->
+            <div class="about-content">
+                <p>
+                    I've isolated bacteria, scaled fermentation processes, navigated regulatory compliance,
+                    designed experiments, reviewed patents, and built this website.
+                </p>
+
+                <p>
+                    My background is microbiology. My work spans R&D, business operations, and techno-commercial
+                    roles. My mindset is: learn what's needed, execute, adapt.
+                </p>
+
+                <p>
+                    I'm comfortable being a beginner in unfamiliar territory. That's how I've moved from
+                    molecular biology to manufacturing coordination to building digital things.
+                </p>
+
+                <p>
+                    <strong>Master's in Microbiology</strong> (CGPA 9.31) from Modern College, Pune.
+                    Work experience in food science, fermentation, regulatory compliance, and product development.
+                    Currently figuring out what's next.
+                </p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- CONTACT FORM OVERLAY -->
-    <div class="contact-overlay">
-        <div class="contact-form-container">
-            <h3 class="contact-form-title">Reach Out</h3>
-            <p class="contact-form-subtitle">Send me a message directly</p>
-            <form class="contact-form">
-                <div class="form-group">
-                    <label class="form-label" for="contact-name">Name</label>
-                    <input type="text" id="contact-name" name="name" class="form-input" placeholder="Your name"
-                        required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="contact-email">Email</label>
-                    <input type="email" id="contact-email" name="email" class="form-input" placeholder="your@email.com"
-                        required>
-                </div>
-                <div class="form-group">
-                    <label class="form-label" for="contact-message">Message</label>
-                    <textarea id="contact-message" name="message" class="form-textarea"
-                        placeholder="What's on your mind?" required></textarea>
-                </div>
-                <button type="submit" class="form-submit">Send Message</button>
-            </form>
-        </div>
-    </div>
+    <!-- ═══════════════════════════════════════════════════════════
+         WORK EXPERIENCE SECTION
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="work" class="work">
+        <div class="container">
+            <h2 class="section-title">Where I've Worked</h2>
 
-    <!-- CONTENT OVERLAY -->
-    <div id="content-overlay">
-        <div class="overlay-background"></div>
-        <div class="overlay-panel">
-            <button id="close-overlay">×</button>
-            <div id="overlay-content">
-                <!-- Content will be dynamically loaded here -->
+            <div class="timeline">
+
+                <!-- ═══════════════════════════════════════════════════════════
+                      EDITABLE: JOB 1
+                     ═══════════════════════════════════════════════════════════
+                     To add a new job: Copy from <div class="timeline-item"> 
+                     to its closing </div> and paste above or below.
+                     ═══════════════════════════════════════════════════════════ -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="job-title">Research and Development Manager</h3>
+                            <span class="job-date">July 2025 - Oct 2025</span>
+                        </div>
+                        <p class="job-company">Valcore Foods Pvt Ltd</p>
+                        <ul class="job-details">
+                            <li>Led fermentation studies on chilli mash, optimizing LAB dominance under varying
+                                methodologies, salt concentrations, particle sizes, and anaerobic conditions</li>
+                            <li>Designed preservative efficacy trials (benzoate, sorbate, metabisulphite, ascorbic acid,
+                                tocopherols, EDTA, blanching) to evaluate microbial stability, color retention, and
+                                shelf life</li>
+                            <li>Standardized analytical assays and developed troubleshooting protocols for fermentation
+                                failures (kahm yeast, texture loss, off-flavors)</li>
+                            <li>Developed fermented hot sauce with focus on stability, sensory profile, texture,
+                                packaging, and physicochemical characteristics aligned with FSSAI guidelines</li>
+                            <li>Investigated pigment degradation in green and red peppers linked to processing
+                                parameters and metal ion content</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--  EDITABLE: JOB 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="job-title">Business Operations Executive</h3>
+                            <span class="job-date">Feb 2024 - June 2025</span>
+                        </div>
+                        <p class="job-company">Anuvi Food Sciences Pvt Ltd</p>
+                        <ul class="job-details">
+                            <li>Scaled in-house production of fermentation-based food additives (6x and 10x) by
+                                optimizing experimental design</li>
+                            <li>Reviewed and updated patents to protect product design and intellectual property (IP)
+                            </li>
+                            <li>Served as primary contact for regulatory compliance and license acquisition, including
+                                FSSAI and HALAL certifications</li>
+                            <li>Designed POC to evaluate efficacy of bitter blocker (taste modulator) in enhancing
+                                palatability of stevia; expanded design for chocolate, coffee, and tea applications</li>
+                            <li>Developed commercially scalable production methodology ensuring viability and
+                                large-scale implementation</li>
+                            <li>Designed and analyzed sensory evaluation experiments for cell-derived additives</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--  EDITABLE: JOB 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-marker"></div>
+                    <div class="timeline-content">
+                        <div class="timeline-header">
+                            <h3 class="job-title">Intern</h3>
+                            <span class="job-date">Feb 2023 - Aug 2023 (6 months)</span>
+                        </div>
+                        <p class="job-company">Mylab Discovery Solutions</p>
+                        <ul class="job-details">
+                            <li>Ran hundreds of RT-PCR tests daily during COVID-19 pandemic, contributing to critical
+                                diagnostic efforts</li>
+                            <li>Collaborated with BD Max to optimize in-house RT-PCR kits for end-to-end automation</li>
+                            <li>Automated RT-PCR kits on in-house machines, including Compact XL, Compact Dx, and
+                                Compact Q</li>
+                            <li>Worked on development and optimization of in-house RT-PCR kit for HHH detection</li>
+                            <li>Part of validation team for RT-PCR kits, ensuring accuracy and regulatory compliance
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!--  TO ADD MORE JOBS: Copy a timeline-item block and paste here -->
+
             </div>
         </div>
-    </div>
+    </section>
 
-    <!-- HIDDEN CONTENT SECTIONS (Source for overlays) -->
-    <div style="display: none;">
+    <!-- ═══════════════════════════════════════════════════════════
+         SKILLS SECTION
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">What I Bring to the Table</h2>
 
-        <!-- ABOUT SECTION -->
-        <div id="about">
-            <h2>Not a One-Trick Pony</h2>
-            <p>
-                I've isolated bacteria, scaled fermentation processes, navigated regulatory compliance,
-                designed experiments, reviewed patents, and built this website.
-            </p>
-            <p>
-                My background is microbiology. My work spans R&D, business operations, and techno-commercial
-                roles. My mindset is: learn what's needed, execute, adapt.
-            </p>
-            <p>
-                I'm comfortable being a beginner in unfamiliar territory. That's how I've moved from
-                molecular biology to manufacturing coordination to building digital things.
-            </p>
-            <p>
-                <strong>Master's in Microbiology</strong> (CGPA 9.31) from Modern College, Pune.
-                Work experience in food science, fermentation, regulatory compliance, and product development.
-                Currently figuring out what's next.
-            </p>
+            <div class="skills-grid">
+
+                <!--  EDITABLE: TECHNICAL SKILLS -->
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Technical</h3>
+                    <ul class="skill-list">
+                        <li>Microbial culture isolation, maintenance, and sampling</li>
+                        <li>Experiment design and protocol development (SOPs, safety standards)</li>
+                        <li>Analytical assays: titration, spectrophotometry, RT-PCR, microbial profiling</li>
+                        <li>Fermentation technology and process optimization</li>
+                        <li>Food additives, preservatives, and formulation</li>
+                        <li>Quality control and documentation</li>
+                    </ul>
+                </div>
+
+                <!--  EDITABLE: REGULATORY & COMPLIANCE SKILLS -->
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Regulatory & Compliance</h3>
+                    <ul class="skill-list">
+                        <li>FSSAI compliance and licensing</li>
+                        <li>ISO 22000:2018 FSMS Lead Auditor certified</li>
+                        <li>GLP/EHS laboratory practices</li>
+                        <li>Regulatory testing and documentation</li>
+                        <li>Patent review and IP protection</li>
+                        <li>Food safety standards (FoSTaC certified)</li>
+                    </ul>
+                </div>
+
+                <!--  EDITABLE: COMMERCIAL & STRATEGIC SKILLS -->
+                <div class="skill-category">
+                    <h3 class="skill-category-title">Commercial & Strategic</h3>
+                    <ul class="skill-list">
+                        <li>Scale-up and production optimization</li>
+                        <li>Product commercialization and POC design</li>
+                        <li>Sensory evaluation and consumer testing</li>
+                        <li>Manufacturing coordination</li>
+                        <li>Team training and workflow management</li>
+                        <li>Cross-functional communication</li>
+                    </ul>
+                </div>
+
+            </div>
         </div>
+    </section>
 
-        <!-- WORK SECTION -->
-        <div id="work">
-            <h2>Where I've Worked</h2>
+    <!-- ═══════════════════════════════════════════════════════════
+         "WHAT I'M CURIOUS ABOUT" SECTION
+         ═══════════════════════════════════════════════════════════
+         This is a MAJOR section. Shows personality beyond work.
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="curious" class="curious">
+        <div class="container">
+            <h2 class="section-title">What I'm Curious About</h2>
+            <p class="section-subtitle">Beyond the job title, here's what keeps me engaged:</p>
 
-            <h3>Research and Development Manager</h3>
-            <p><strong>Valcore Foods Pvt Ltd</strong> | July 2025 - Oct 2025</p>
-            <ul>
-                <li>Led fermentation studies on chilli mash, optimizing LAB dominance under varying methodologies, salt
-                    concentrations, particle sizes, and anaerobic conditions</li>
-                <li>Designed preservative efficacy trials (benzoate, sorbate, metabisulphite, ascorbic acid,
-                    tocopherols, EDTA, blanching) to evaluate microbial stability, color retention, and shelf life</li>
-                <li>Standardized analytical assays and developed troubleshooting protocols for fermentation failures
-                    (kahm yeast, texture loss, off-flavors)</li>
-                <li>Developed fermented hot sauce with focus on stability, sensory profile, texture, packaging, and
-                    physicochemical characteristics aligned with FSSAI guidelines</li>
-                <li>Investigated pigment degradation in green and red peppers linked to processing parameters and metal
-                    ion content</li>
-            </ul>
+            <div class="curiosity-grid">
 
-            <h3>Business Operations Executive</h3>
-            <p><strong>Anuvi Food Sciences Pvt Ltd</strong> | Feb 2024 - June 2025</p>
-            <ul>
-                <li>Scaled in-house production of fermentation-based food additives (6x and 10x) by optimizing
-                    experimental design</li>
-                <li>Reviewed and updated patents to protect product design and intellectual property (IP)</li>
-                <li>Served as primary contact for regulatory compliance and license acquisition, including FSSAI and
-                    HALAL certifications</li>
-                <li>Designed POC to evaluate efficacy of bitter blocker (taste modulator) in enhancing palatability of
-                    stevia; expanded design for chocolate, coffee, and tea applications</li>
-                <li>Developed commercially scalable production methodology ensuring viability and large-scale
-                    implementation</li>
-                <li>Designed and analyzed sensory evaluation experiments for cell-derived additives</li>
-            </ul>
+                <!-- ═══════════════════════════════════════════════════════════
+                      EDITABLE: READING & IDEAS
+                     ═══════════════════════════════════════════════════════════
+                     Add images of books you've read or articles you've connected with
+                     Put images in: images/hobbies/reading/
+                     ═══════════════════════════════════════════════════════════ -->
+                <div class="curiosity-item with-images">
+                    <h3 class="curiosity-title">Reading & Ideas</h3>
+                    <div class="curiosity-content">
+                        <p class="curiosity-description">
+                            Memoirs, feminist literature, and literary journals.
+                            Currently reading feminist literature and literary journals.
+                        </p>
+                        <!--  IMAGE GALLERY: Book covers -->
+                        <div class="curiosity-image-gallery" id="readingGallery">
+                            <!-- 3 visible books -->
+                            <div class="gallery-item">
+                                <img src="images/hobbies/reading/mother_mary.jpg"
+                                    alt="Mother Mary Comes To Me by Arundhati Roy" class="gallery-image">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/hobbies/reading/mans_search.jpg"
+                                    alt="Man's Search for Meaning by Viktor E. Frankl" class="gallery-image">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/hobbies/reading/caged_bird.jpg"
+                                    alt="I Know Why the Caged Bird Sings by Maya Angelou" class="gallery-image">
+                            </div>
+                            <!-- Hidden books -->
+                            <div class="gallery-item hidden-reading">
+                                <img src="images/hobbies/reading/tattooist_1.jpg"
+                                    alt="The Tattooist of Auschwitz by Heather Morris" class="gallery-image">
+                            </div>
+                            <div class="gallery-item hidden-reading">
+                                <img src="images/hobbies/reading/tattooist_2.jpg"
+                                    alt="The Tattooist of Auschwitz (alternate cover)" class="gallery-image">
+                            </div>
+                            <div class="gallery-item hidden-reading">
+                                <img src="images/hobbies/reading/god_small_things.jpg"
+                                    alt="The God of Small Things by Arundhati Roy" class="gallery-image">
+                            </div>
+                        </div>
+                        <button id="showMoreReading" class="show-more-btn">Show More...</button>
+                    </div>
+                </div>
 
-            <h3>Intern</h3>
-            <p><strong>Mylab Discovery Solutions</strong> | Feb 2023 - Aug 2023 (6 months)</p>
-            <ul>
-                <li>Ran hundreds of RT-PCR tests daily during COVID-19 pandemic, contributing to critical diagnostic
-                    efforts</li>
-                <li>Collaborated with BD Max to optimize in-house RT-PCR kits for end-to-end automation</li>
-                <li>Automated RT-PCR kits on in-house machines, including Compact XL, Compact Dx, and Compact Q</li>
-                <li>Worked on development and optimization of in-house RT-PCR kit for HHH detection</li>
-                <li>Part of validation team for RT-PCR kits, ensuring accuracy and regulatory compliance</li>
-            </ul>
+                <!-- ═══════════════════════════════════════════════════════════
+                      EDITABLE: ARTISTIC EXPRESSION
+                     ═══════════════════════════════════════════════════════════
+                     Add images of your drawings, paintings, poems, or creative work
+                     Put images in: images/hobbies/art/
+                     ═══════════════════════════════════════════════════════════ -->
+                <div class="curiosity-item with-images">
+                    <h3 class="curiosity-title">Artistic Expression</h3>
+                    <div class="curiosity-content">
+                        <p class="curiosity-description">
+                            Painting, Bharatnatyam, writing, journaling, and scrapbooking.
+                            Everything that gives me a sense of calmness and control.
+                            Helps me think better when I can see the words of a problem on paper.
+                        </p>
+                        <!--  IMAGE GALLERY: Artwork showcase -->
+                        <div class="curiosity-image-gallery" id="artworkGallery">
+                            <!-- 3 visible artworks - colorful and eye-catching -->
+                            <div class="gallery-item">
+                                <img src="images/hobbies/art/cityscape.jpg" alt="Blue cityscape painting"
+                                    class="gallery-image">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/hobbies/art/joker_colored.jpg" alt="Colored Joker artwork"
+                                    class="gallery-image">
+                            </div>
+                            <div class="gallery-item">
+                                <img src="images/hobbies/art/anime_zoro.jpg" alt="Anime Zoro artwork"
+                                    class="gallery-image">
+                            </div>
+
+                            <!-- Hidden artworks - revealed with "Show More" -->
+                            <div class="gallery-item hidden-artwork">
+                                <img src="images/hobbies/art/mehndi_designs.jpg" alt="Mehndi henna designs"
+                                    class="gallery-image">
+                            </div>
+                            <div class="gallery-item hidden-artwork">
+                                <img src="images/hobbies/art/anime_character.jpg" alt="Anime character artwork"
+                                    class="gallery-image">
+                            </div>
+                            <div class="gallery-item hidden-artwork">
+                                <img src="images/hobbies/art/breaking_bad.jpg" alt="Breaking Bad inspired artwork"
+                                    class="gallery-image">
+                            </div>
+                            <div class="gallery-item hidden-artwork">
+                                <img src="images/hobbies/art/stranger_things.jpg" alt="Stranger Things artwork"
+                                    class="gallery-image">
+                            </div>
+                            <div class="gallery-item hidden-artwork">
+                                <img src="images/hobbies/art/portrait.jpg" alt="Portrait stencil artwork"
+                                    class="gallery-image">
+                            </div>
+                            <div class="gallery-item hidden-artwork">
+                                <img src="images/hobbies/art/joker.jpg" alt="Joker black and white artwork"
+                                    class="gallery-image">
+                            </div>
+                            <div class="gallery-item hidden-artwork">
+                                <img src="images/hobbies/art/wall_art.jpg" alt="Floral wall decoration"
+                                    class="gallery-image">
+                            </div>
+                            <div class="gallery-item hidden-artwork">
+                                <img src="images/hobbies/art/portrait_sketch.jpg" alt="Portrait sketch artwork"
+                                    class="gallery-image">
+                            </div>
+                            <div class="gallery-item hidden-artwork">
+                                <img src="images/hobbies/art/everybody_lies.jpg" alt="Everybody Lies artwork"
+                                    class="gallery-image">
+                            </div>
+                            <div class="gallery-item hidden-artwork">
+                                <img src="images/hobbies/art/silhouette_art.jpg" alt="Silhouette art"
+                                    class="gallery-image">
+                            </div>
+                        </div>
+                        <button id="showMoreArt" class="show-more-btn">Show More...</button>
+                    </div>
+                </div>
+
+                <!--  EDITABLE: LEARNING OUTSIDE MY LANE -->
+                <div class="curiosity-item">
+                    <h3 class="curiosity-title">Learning Outside My Lane</h3>
+                    <div class="curiosity-content">
+                        <p class="curiosity-description">
+                            Comfortable diving into unfamiliar domains. Recent explorations:
+                            solo venture, web development, vibe coding, and developing teaching aids.
+                        </p>
+                        <div class="software-logos">
+                            <span class="software-tag">NotebookLM</span>
+                            <span class="software-tag">Perplexity</span>
+                            <span class="software-tag">Antigravity</span>
+                            <span class="software-tag">Cursor</span>
+
+                            <span class="software-tag">GitHub</span>
+                            <span class="software-tag">HackerRank</span>
+                            <span class="software-tag">FastQC</span>
+
+                            <span class="software-tag">fastp</span>
+                            <span class="software-tag">Trimmomatic</span>
+                            <span class="software-tag">Cutadapt</span>
+                            <span class="software-tag">MEGAHIT</span>
+
+                            <span class="software-tag">metaSPAdes</span>
+                            <span class="software-tag">Kraken
+                                2</span>
+                            <span class="software-tag">GTDB-Tk</span>
+                            <span class="software-tag">MetaWRAP</span>
+                            <span class="software-tag">ChemDraw</span>
+
+                            <span class="software-tag">Canva</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!--  TO ADD MORE INTERESTS: Copy a curiosity-item block and paste here -->
+
+            </div>
+
+
+
         </div>
+    </section>
 
-        <!-- SKILLS SECTION -->
-        <div id="skills">
-            <h2>What I Bring to the Table</h2>
+    <!-- ═══════════════════════════════════════════════════════════
+         PROJECTS SECTION
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Projects & Research</h2>
 
-            <h3>Technical</h3>
-            <ul>
-                <li>Microbial culture isolation, maintenance, and sampling</li>
-                <li>Experiment design and protocol development (SOPs, safety standards)</li>
-                <li>Analytical assays: titration, spectrophotometry, RT-PCR, microbial profiling</li>
-                <li>Fermentation technology and process optimization</li>
-                <li>Food additives, preservatives, and formulation</li>
-                <li>Quality control and documentation</li>
-            </ul>
+            <div class="projects-grid">
 
-            <h3>Regulatory & Compliance</h3>
-            <ul>
-                <li>FSSAI compliance and licensing</li>
-                <li>ISO 22000:2018 FSMS Lead Auditor certified</li>
-                <li>GLP/EHS laboratory practices</li>
-                <li>Regulatory testing and documentation</li>
-                <li>Patent review and IP protection</li>
-                <li>Food safety standards (FoSTaC certified)</li>
-            </ul>
+                <!--  EDITABLE: PROJECT 1 -->
+                <div class="project-card">
+                    <h3 class="project-title">NGS Soil Metagenomics</h3>
+                    <p class="project-meta">Research Assistant | Oct 2021 - Sept 2022</p>
+                    <p class="project-description">
+                        Analyzed NGS data to characterize and identify soil metagenomes across different
+                        cropping systems and fertilizers. Worked with bioinformatics tools to understand
+                        microbial diversity in agricultural contexts.
+                    </p>
+                </div>
 
-            <h3>Commercial & Strategic</h3>
-            <ul>
-                <li>Scale-up and production optimization</li>
-                <li>Product commercialization and POC design</li>
-                <li>Sensory evaluation and consumer testing</li>
-                <li>Manufacturing coordination</li>
-                <li>Team training and workflow management</li>
-                <li>Cross-functional communication</li>
-            </ul>
+                <!--  EDITABLE: PROJECT 2 -->
+                <div class="project-card">
+                    <h3 class="project-title">College Vicinity Food Safety Assessment</h3>
+                    <p class="project-meta">Student Project | Aug 2017 - Dec 2017</p>
+                    <p class="project-description">
+                        Isolated, identified, and characterized bacteria responsible for food poisoning
+                        at outlets frequented by Fergusson College students. Successfully detected
+                        <em>Staphylococcus aureus</em>, <em>Salmonella</em>, and <em>Campylobacter</em>.
+                    </p>
+                </div>
+
+                <!--  TO ADD MORE PROJECTS: Copy a project-card block and paste here -->
+
+            </div>
         </div>
+    </section>
 
-        <!-- PROJECTS SECTION -->
-        <div id="projects">
-            <h2>Projects & Research</h2>
+    <!-- ═══════════════════════════════════════════════════════════
+         ACHIEVEMENTS SECTION
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="achievements" class="achievements">
+        <div class="container">
+            <h2 class="section-title">Certifications & Extras</h2>
 
-            <h3>NGS Soil Metagenomics</h3>
-            <p><strong>Research Assistant</strong> | Oct 2021 - Sept 2022</p>
-            <p>
-                Analyzed NGS data to characterize and identify soil metagenomes across different
-                cropping systems and fertilizers. Worked with bioinformatics tools to understand
-                microbial diversity in agricultural contexts.
-            </p>
-
-            <h3>College Vicinity Food Safety Assessment</h3>
-            <p><strong>Student Project</strong> | Aug 2017 - Dec 2017</p>
-            <p>
-                Isolated, identified, and characterized bacteria responsible for food poisoning
-                at outlets frequented by Fergusson College students. Successfully detected
-                <em>Staphylococcus aureus</em>, <em>Salmonella</em>, and <em>Campylobacter</em>.
-            </p>
-
-            <h3>Certifications & Extras</h3>
-            <ul>
-                <li>Food Safety Training (FoSTaC) Certification</li>
-                <li>ISO 22000:2018 FSMS Lead Auditor Certification</li>
-                <li>GLP/EHS Laboratory Practices Training (2023)</li>
-                <li>Pharmaceutical Microbiology Techniques Certification</li>
-                <li>Pharmaceutical QA/QC Certification Course</li>
-                <li>Volunteered during COVID-19 pandemic for testing initiative at Molecular Diagnostic Research Centre,
-                    Savitribai Phule University</li>
-            </ul>
+            <!--  EDITABLE: Add or remove achievements -->
+            <div class="achievements-grid">
+                <div class="achievement-item"> Food Safety Training (FoSTaC) Certification</div>
+                <div class="achievement-item"> ISO 22000:2018 FSMS Lead Auditor Certification</div>
+                <div class="achievement-item"> GLP/EHS Laboratory Practices Training (2023)</div>
+                <div class="achievement-item"> Pharmaceutical Microbiology Techniques Certification</div>
+                <div class="achievement-item"> Pharmaceutical QA/QC Certification Course</div>
+                <div class="achievement-item"> Volunteered during COVID-19 pandemic for testing initiative at
+                    Molecular
+                    Diagnostic Research Centre, Savitribai Phule University</div>
+            </div>
         </div>
+    </section>
 
-        <!-- CURIOSITY SECTION -->
-        <div id="curious">
-            <h2>What I'm Curious About</h2>
-            <p>Beyond the job title, here's what keeps me engaged:</p>
+    <!-- ═══════════════════════════════════════════════════════════
+         BLOGS SECTION
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="blogs" class="blogs">
+        <div class="container">
+            <h2 class="section-title">Writings & Reflections</h2>
+            <p class="section-subtitle">Thoughts on science, creativity, and everything in between</p>
 
-            <h3>Reading & Ideas</h3>
-            <p>
-                Gothic fiction, feminist literature, and literary journals.
-                Currently reading feminist literature and literary journals.
-            </p>
+            <div class="blogs-grid">
 
-            <h3>Artistic Expression</h3>
-            <p>
-                Painting, Bharatnatyam, writing, journaling, and scrapbooking.
-                Everything that gives me a sense of calmness and control.
-                Helps me think better when I can see the words of a problem on paper.
-            </p>
+                <!-- ═══════════════════════════════════════════════════════════
+                      EDITABLE: BLOG POST 1
+                     ═══════════════════════════════════════════════════════════
+                     To add a new blog post: Copy this entire blog-card block
+                     ═══════════════════════════════════════════════════════════ -->
+                <div class="blog-card">
+                    <h3 class="blog-title">Your Blog Post Title</h3>
+                    <p class="blog-meta">Date | Category</p>
+                    <p class="blog-excerpt">
+                        A short excerpt or introduction to your blog post.
+                        Keep it engaging and give readers a reason to click "Read More"...
+                    </p>
+                    <a href="#" class="blog-link">Read More ...</a>
+                </div>
 
-            <h3>Learning Outside My Lane</h3>
-            <p>
-                Comfortable diving into unfamiliar domains. Recent explorations:
-                solo venture, web development, vibe coding, and developing teaching aids.
-            </p>
-            <p><strong>Tools I've explored:</strong> NotebookLM, Perplexity, Antigravity, Cursor, GitHub, HackerRank,
-                FastQC, fastp, Trimmomatic, Cutadapt, MEGAHIT, metaSPAdes, Kraken 2, GTDB-Tk, MetaWRAP, ChemDraw, Canva
-            </p>
-        </div>
+                <!--  EDITABLE: BLOG POST 2 -->
+                <div class="blog-card">
+                    <h3 class="blog-title">Another Blog Post Title</h3>
+                    <p class="blog-meta">Date | Category</p>
+                    <p class="blog-excerpt">
+                        Another engaging excerpt that makes people want to read more
+                        about your thoughts and experiences...
+                    </p>
+                    <a href="#" class="blog-link">Read More ...</a>
+                </div>
 
-        <!-- BLOGS SECTION -->
-        <div id="blogs">
-            <h2>Writings & Reflections</h2>
-            <p>Thoughts on science, creativity, and everything in between</p>
+                <!--  TO ADD MORE BLOG POSTS: Copy a blog-card block and paste here -->
 
-            <h3>Your Blog Post Title</h3>
-            <p><em>Date | Category</em></p>
-            <p>
-                A short excerpt or introduction to your blog post.
-                Keep it engaging and give readers a reason to click "Read More"...
-            </p>
+            </div>
 
-            <h3>Another Blog Post Title</h3>
-            <p><em>Date | Category</em></p>
-            <p>
-                Another engaging excerpt that makes people want to read more
-                about your thoughts and experiences...
-            </p>
-
-            <p>
+            <p class="blog-note">
+                <!--  EDITABLE: Add link to external blog if you have one -->
                 Want to read more? Visit my <a href="#" target="_blank">blog</a> or
                 <a href="#" target="_blank">Medium profile</a>.
             </p>
         </div>
+    </section>
 
-        <!-- CONTACT SECTION -->
-        <div id="contact">
-            <h2>Let's Connect</h2>
-            <p>
+    <!-- ═══════════════════════════════════════════════════════════
+         CONTACT SECTION
+         ═══════════════════════════════════════════════════════════ -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Let's Connect</h2>
+
+            <p class="contact-intro">
                 If something here made you think, question, or disagree, that's a good place to start.
             </p>
 
-            <p><strong>Email:</strong> <a href="mailto:puja.mankar.k@gmail.com">puja.mankar.k@gmail.com</a></p>
-            <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/puja-mankar-819b1b17b/"
-                    target="_blank">puja-mankar</a></p>
-            <p><strong>Phone:</strong> <a href="tel:+918208731193">(+91) 8208731193</a></p>
+            <div class="contact-links"
+                style="display: flex; justify-content: center; align-items: center; gap: 2rem; margin-top: 2rem;">
+
+                <!--  Email Icon - Opens Gmail compose -->
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=puja.mankar.k@gmail.com" target="_blank"
+                    class="social-icon" title="Send me an email"
+                    style="font-size: 30px; color: #667eea; transition: all 0.3s ease; text-decoration: none;">
+                    <i class="fas fa-envelope"></i>
+                </a>
+
+                <!--  LinkedIn Icon -->
+                <a href="https://www.linkedin.com/in/puja-mankar-819b1b17b/" target="_blank" class="social-icon"
+                    title="Connect on LinkedIn"
+                    style="font-size: 30px; color: #667eea; transition: all 0.3s ease; text-decoration: none;">
+                    <i class="fab fa-linkedin"></i>
+                </a>
+
+            </div>
+
+            <style>
+                .social-icon:hover {
+                    transform: translateY(-3px) scale(1.1);
+                    color: #764ba2;
+                }
+            </style>
         </div>
+    </section>
 
-    </div>
+    <!-- ═══════════════════════════════════════════════════════════
+         FOOTER - "BUILT THIS MYSELF" SIGNAL
+         ═══════════════════════════════════════════════════════════ -->
+    <footer class="footer">
+        <div class="container">
+            <p class="footer-main">&copy; 2026 Puja Mankar</p>
+            <p class="footer-built">
+                Designed and built by me. No formal coding background.
+                Just curiosity and execution.
+            </p>
+        </div>
+    </footer>
 
-    <!-- 2D FALLBACK FOR MOBILE (Original Portfolio) -->
-    <div id="fallback-2d" style="display: none;">
-        <!-- Original portfolio content will be shown here for mobile devices -->
-        <p style="text-align: center; padding: 2rem; color: #666;">
-            <strong>Mobile version:</strong> The 3D experience is optimized for desktop.
-            <br><br>
-            Please visit on a desktop browser for the full interactive experience.
-            <br><br>
-            <a href="https://pujamankark.github.io/Website/" style="color: #00d9ff;">View traditional portfolio →</a>
-        </p>
-    </div>
+    <!-- Smooth Scrolling Script -->
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
 
-    <!-- Three.js and Application Scripts -->
-    <script src="js/form-handler.js"></script>
-    <script type="module" src="js/main.js"></script>
+        // Show More Artwork functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const showMoreBtn = document.getElementById('showMoreArt');
+            const hiddenArtworks = document.querySelectorAll('.hidden-artwork');
+            let isExpanded = false;
+
+            if (showMoreBtn && hiddenArtworks.length > 0) {
+                showMoreBtn.addEventListener('click', function () {
+                    isExpanded = !isExpanded;
+
+                    hiddenArtworks.forEach(item => {
+                        if (isExpanded) {
+                            item.style.display = 'block';
+                            // Trigger animation
+                            setTimeout(() => {
+                                item.classList.add('fade-in');
+                            }, 10);
+                        } else {
+                            item.classList.remove('fade-in');
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+
+                    showMoreBtn.textContent = isExpanded ? 'Show Less' : 'Show More...';
+                });
+            }
+        });
+
+        // Show More Reading functionality
+        document.addEventListener('DOMContentLoaded', function () {
+            const showMoreReadingBtn = document.getElementById('showMoreReading');
+            const hiddenReading = document.querySelectorAll('.hidden-reading');
+            let isReadingExpanded = false;
+
+            if (showMoreReadingBtn && hiddenReading.length > 0) {
+                showMoreReadingBtn.addEventListener('click', function () {
+                    isReadingExpanded = !isReadingExpanded;
+
+                    hiddenReading.forEach(item => {
+                        if (isReadingExpanded) {
+                            item.style.display = 'block';
+                            // Trigger animation
+                            setTimeout(() => {
+                                item.classList.add('fade-in');
+                            }, 10);
+                        } else {
+                            item.classList.remove('fade-in');
+                            setTimeout(() => {
+                                item.style.display = 'none';
+                            }, 300);
+                        }
+                    });
+
+                    showMoreReadingBtn.textContent = isReadingExpanded ? 'Show Less' : 'Show More...';
+                });
+            }
+        });
+    </script>
 
 </body>
 

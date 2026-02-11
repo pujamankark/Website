@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Debug Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+
+        .test-box {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .hidden-artwork {
+            display: none;
+        }
+
+        .show-more-btn {
+            margin: 20px auto 0;
+            padding: 12px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            display: block;
+        }
+
+        .item {
+            padding: 15px;
+            margin: 10px 0;
+            background: #e3f2fd;
+            border-radius: 5px;
+        }
+
+        #log {
+            background: #263238;
+            color: #aed581;
+            padding: 15px;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>🔍 JavaScript Debug Test</h1>
+
+    <div class="test-box">
+        <h2>Test Items</h2>
+        <div class="item">Item 1 (Always Visible)</div>
+        <div class="item">Item 2 (Always Visible)</div>
+        <div class="item">Item 3 (Always Visible)</div>
+        <div class="item hidden-artwork">Item 4 (Hidden)</div>
+        <div class="item hidden-artwork">Item 5 (Hidden)</div>
+
+        <button id="showMoreArt" class="show-more-btn">Show More...</button>
+    </div>
+
+    <div class="test-box">
+        <h2>Console Log</h2>
+        <div id="log"></div>
+    </div>
+
+    <script>
+        // Logging function
+        function log(message) {
+            const logDiv = document.getElementById('log');
+            const timestamp = new Date().toLocaleTimeString();
+            logDiv.innerHTML += `[${timestamp}] ${message}<br>`;
+            logDiv.scrollTop = logDiv.scrollHeight;
+            console.log(message);
+        }
+
+        log('Script started');
+
+        // Wait for DOM to load
+        document.addEventListener('DOMContentLoaded', function () {
+            log('DOM Content Loaded');
+
+            const showMoreBtn = document.getElementById('showMoreArt');
+            const hiddenArtworks = document.querySelectorAll('.hidden-artwork');
+
+            log(`Found button: ${showMoreBtn ? 'YES' : 'NO'}`);
+            log(`Found hidden items: ${hiddenArtworks.length}`);
+
+            let isExpanded = false;
+
+            if (showMoreBtn && hiddenArtworks.length > 0) {
+                log('Setting up click listener...');
+
+                showMoreBtn.addEventListener('click', function () {
+                    log('Button clicked!');
+                    isExpanded = !isExpanded;
+                    log(`isExpanded: ${isExpanded}`);
+
+                    hiddenArtworks.forEach((item, index) => {
+                        if (isExpanded) {
+                            log(`Showing item ${index + 1}`);
+                            item.style.display = 'block';
+                        } else {
+                            log(`Hiding item ${index + 1}`);
+                            item.style.display = 'none';
+                        }
+                    });
+
+                    showMoreBtn.textContent = isExpanded ? 'Show Less' : 'Show More...';
+                    log(`Button text changed to: ${showMoreBtn.textContent}`);
+                });
+
+                log('Click listener setup complete!');
+            } else {
+                log('ERROR: Missing button or hidden items!');
+            }
+        });
+
+        log('Script ended (waiting for DOM)');
+    </script>
+</body>
+
+</html>
